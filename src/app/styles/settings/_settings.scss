@@ -1,6 +1,0 @@
-
-@for $i from 1 through 200 {
-    .max-width-#{$i * 50} {
-      max-width: #{$i * 50}px;
-    }
-  }

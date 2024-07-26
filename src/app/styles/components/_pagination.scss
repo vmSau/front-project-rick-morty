@@ -1,0 +1,36 @@
+.menu-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  .pages-number {
+    width: fit-content;
+    color: $sanchez-light-text;
+    font-size: 20px;
+    &:hover {
+      cursor: pointer;
+      color: $sanchez-secondary;
+    }
+    &.current {
+      font-weight: 700;
+      font-family: var(--font-family-title);
+      font-size: 24px;
+      color: $sanchez-primary;
+    }
+  }
+  .icon {
+    .previous,
+    .next {
+      font-size: 24px;
+      color: $sanchez-primary;
+    }
+  }
+  .btn-icon {
+    border-radius: 100%;
+    background: transparent;
+    border: none;
+    span:hover {
+      color: $sanchez-secondary;
+    }
+  }
+}

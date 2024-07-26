@@ -23,7 +23,6 @@ export class FavoriteService {
   }
 
   removeFromFavorites(characterId: number) {
-
     this.favorites = this.favorites.filter((id: number) => id !== characterId);
     this.updateFavoriteCount(this.favorites);
     localStorage.setItem('favorites', JSON.stringify(this.favorites));

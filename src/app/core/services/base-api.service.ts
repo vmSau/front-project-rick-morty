@@ -2,7 +2,7 @@ import { environment } from './../../../environments/environment.development';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { IFilter } from '../../pages/characters/service/character.service';
+import { IFilter } from '../../pages/characters/services/character.service';
 
 @Injectable({
   providedIn: 'root',

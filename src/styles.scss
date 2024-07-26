@@ -6,10 +6,17 @@
 @import './app/styles/settings/margin.scss';
 @import './app/styles/settings/padding.scss';
 @import './app/styles/settings/typography.scss';
-
-@import './app/styles/components/navbar.scss';
-@import './app/styles/components/card.scss';
 @import './app/styles/base/base.scss';
+
+
+@import './app/styles/components/button-group.scss';
+@import './app/styles/components/card.scss';
+@import './app/styles/components/input.scss';
+@import './app/styles/components/navbar.scss';
+@import './app/styles/components/pagination.scss';
+@import './app/styles/components/notification.scss';
+
+
 
 @include margin();
 @include padding();

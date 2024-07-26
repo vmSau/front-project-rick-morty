@@ -1,17 +1,17 @@
 import { NgClass } from '@angular/common';
 import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
-import { FavoriteService } from '../../service/favorite.service';
+import { ICharacter } from '../../interfaces/character.interface';
+import { FavoriteService } from '../../services/favorite.service';
 
 @Component({
   selector: 'app-card',
   standalone: true,
   imports: [NgClass],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
 })
 export class CardComponent implements OnChanges {
 
-  @Input() character!: any;
+  @Input() character!: ICharacter;
   @Input() flip: boolean = false;
   @Output() removeFromFavorites = new EventEmitter();
 

@@ -8,16 +8,16 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { NgClass } from '@angular/common';
+import { IPageInfo } from '../../../pages/characters/interfaces/page-info.interface';
 
 @Component({
   selector: 'app-paginator',
   standalone: true,
   imports: [NgClass],
   templateUrl: './paginator.component.html',
-  styleUrl: './paginator.component.scss',
 })
 export class PaginatorComponent implements OnInit, OnChanges {
-  @Input() pagesInfo: any;
+  @Input() pagesInfo!: IPageInfo;
   @Output() skipPage = new EventEmitter();
 
   public currentPage: number = 1;

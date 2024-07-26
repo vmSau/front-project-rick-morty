@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export interface INotification {
   type: 'success' | 'danger' | 'notFound';
   message: string;
+  actionMessage?: string;
 }
 
 @Injectable({
@@ -25,8 +26,8 @@ export class NotificationService {
     this.alertSubject.next({ type: 'danger', message });
   }
 
-  showNotFound(message: string){
-    this.alertSubject.next({ type: 'notFound', message });
+  showNotFound(message: string, actionMessage?: string){
+    this.alertSubject.next({ type: 'notFound', message, actionMessage });
   }
 
   clear() {

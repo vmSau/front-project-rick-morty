@@ -1,0 +1,15 @@
+.input-primary {
+  background-color: $sanchez-bg-2;
+  color: $sanchez-light-gray-text;
+  &:focus {
+    color: $sanchez-light-gray-text;
+    background-color: $sanchez-bg-2;
+    border-color: $sanchez-primary;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #b2df2860;
+  }
+}
+
+input::placeholder {
+  color: $sanchez-light-gray-text !important;
+}
