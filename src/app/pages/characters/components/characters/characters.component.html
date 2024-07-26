@@ -1,0 +1,34 @@
+<div class="m-vertical-xl">
+  <div class="row p-lg m-bottom-xl">
+    <div class="col-md-8 m-bottom-lg">
+      <h1>{{title}}</h1>
+    </div>
+    <div class="col-md-4 align-content-center">
+      <input
+        class="form-control form-control-lg input-primary"
+        type="text"
+        placeholder="Pesquisar"
+        aria-label="buscar personagens"
+        [formControl]="searchControl"
+      />
+    </div>
+  </div>
+  <app-notification></app-notification>
+  <div class="row p-lg">
+    @if (characters) {
+       @for (character of characters; track $index) {
+        <div class="col-12 col-md-6 col-lg-4 p-lg">
+          <app-card [character]="character" [flip]="true" (removeFromFavorites)="removeCardFavorite($event)" />
+        </div>
+      }@empty {
+        <p>{{errorMessage}}</p>
+        }
+      @if (pageInfo) {
+        <app-paginator
+        [pagesInfo]="pageInfo"
+        (skipPage)="skipPage($event)"
+      ></app-paginator>
+      }
+    }
+  </div>
+</div>

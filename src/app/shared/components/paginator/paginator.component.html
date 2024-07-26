@@ -1,0 +1,27 @@
+@if (numberOfpage && pagesInfo){
+<ul class="menu-pagination">
+  @if (pagesInfo.prev){
+  <li>
+    <button class="btn-icon prev" id="prev"  (click)="changePage(currentPage - 1, 'prev')">
+      <span class="material-icons"> navigate_before </span>
+    </button>
+  </li>
+  } @for (page of numberOfpage; track page) {
+  <li
+    class="pages-number p-md"
+    [ngClass]="{ current: currentPage == page }"
+    (click)="changePage(page, 'current')"
+  >
+    {{ page }}
+  </li>
+  }
+  @if (pagesInfo.next){
+    <li>
+      <button class="btn-icon" id="next" (click)="changePage(currentPage + 1, 'next')">
+        <span class="material-icons"> navigate_next </span>
+      </button>
+    </li>
+  }
+</ul>
+
+}

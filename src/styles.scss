@@ -1,0 +1,15 @@
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
+
+@import './app/styles/settings/palette.scss';
+@import './app/styles/settings/margin.scss';
+@import './app/styles/settings/padding.scss';
+@import './app/styles/settings/typography.scss';
+
+@import './app/styles/components/navbar.scss';
+@import './app/styles/components/card.scss';
+@import './app/styles/base/base.scss';
+
+@include margin();
+@include padding();
