@@ -1,0 +1,94 @@
+.card-list {
+  background: $sanchez-bg-1;
+  border-radius: 8px;
+}
+
+.card {
+  position: relative;
+  .icon-favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    font-size: 48px;
+    cursor: pointer;
+    &.favorited {
+      color: $sanchez-dark;
+    }
+    &.favorite-border {
+      color: $sanchez-light-text;
+    }
+  }
+}
+
+.flip-card {
+  background: $sanchez-bg-1;
+  > * {
+    color: $sanchez-light-gray-text;
+  }
+  &:hover {
+    border: $sanchez-primary 1px solid;
+    box-shadow: 0px 0px 8px 4px rgba(178, 223, 40, 1);
+    .favorited {
+      transition: all 0.2s ease-in-out;
+      color: $sanchez-secondary-dark !important;
+    }
+  }
+}
+.card-container {
+  position: relative;
+  .icon-favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 2;
+    font-size: 48px;
+    cursor: pointer;
+    &.favorited {
+      color: $sanchez-dark;
+    }
+    &.favorite-border {
+      color: $sanchez-light-text;
+    }
+  }
+}
+
+.profile-card {
+  height: 500px;
+  position: relative;
+}
+
+.profile-card-face {
+  width: -webkit-fill-available;
+  transition: all 0.8s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.profile-card-back {
+  padding: 20px;
+  transform: rotateY(180deg);
+}
+
+.profile-card:hover .profile-card-front {
+  transform: rotateY(-180deg);
+}
+
+.profile-card:hover .profile-card-back {
+  transform: rotateY(0);
+}
+
+.about-section {
+  margin: auto;
+  .card-title {
+    text-align: center;
+    margin-top: 32px;
+  }
+  .card-text {
+    margin-top: 20px;
+  }
+}

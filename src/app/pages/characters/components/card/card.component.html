@@ -1,0 +1,44 @@
+ 
+    <div class="card" #card [ngClass]="flip ? 'flip-card' : ''">
+      @if (isFavorited) {
+        <span class="material-icons icon-favorite favorited" (click)="toggleFavorite()">
+          favorite
+          </span>
+      } @else {
+        <span class="material-icons icon-favorite favorite-border" (click)="toggleFavorite()">
+          favorite_border
+        </span>
+      }
+      <div class="profile-card">
+        <div class="profile-card-front  profile-card-face">
+          <img
+            [src]="character.image"
+            class="card-img-top"
+            [alt]="character.name"
+          />
+    
+          <div class="card-body">
+            <h4 class="card-title">{{ character.name }}</h4>
+            <p class="card-text">
+              {{ character.species }}
+            </p>
+          </div>
+        </div>
+        <div class="profile-card-back profile-card-face">
+          <div class="about-section">
+            <h2 class="card-title">{{ character.name }}</h2>
+    
+            <ul class="card-text card-subtitle">
+              <li><span class="list-label">species:</span> {{ character.species }}</li>
+              <li><span class="list-label">status:</span> {{ character.status }}</li>
+              <li><span class="list-label">gender: </span>{{ character.gender }}</li>
+              <li><span class="list-label">origin: </span>{{ character.origin.name }}</li>
+              <li><span class="list-label">location: </span>{{ character.location.name }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+

@@ -1,0 +1,50 @@
+$margin: (
+  xs: 4px,
+  sm: 8px,
+  md: 12px,
+  lg: 16px,
+  xl: 32px,
+  2xl: 48px,
+);
+
+@mixin margin() {
+  @each $key, $value in $margin {
+    .m-#{$key} {
+      margin: #{$value};
+    }
+  }
+
+  @each $key, $value in $margin {
+    .m-vertical-#{$key} {
+      margin: #{$value} 0px;
+    }
+  }
+  @each $key, $value in $margin {
+    .m-horizontal-#{$key} {
+      margin: 0px #{$value};
+    }
+  }
+  @each $key, $value in $margin {
+    .m-top-#{$key} {
+      margin-top: #{$value};
+    }
+  }
+
+  @each $key, $value in $margin {
+    .m-bottom-#{$key} {
+      margin-bottom: #{$value};
+    }
+  }
+
+  @each $key, $value in $margin {
+    .m-left-#{$key} {
+      margin-left: #{$value};
+    }
+  }
+
+  @each $key, $value in $margin {
+    .m-right-#{$key} {
+      padding-right: #{$value};
+    }
+  }
+}

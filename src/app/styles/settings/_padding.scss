@@ -1,0 +1,51 @@
+$padding: (
+  xs: 4px,
+  sm: 8px,
+  md: 12px,
+  lg: 16px,
+  xl: 24px,
+  xxl: 44px,
+  3xl:60px
+ );
+
+@mixin padding() {
+  @each $key, $value in $padding {
+    .p-#{$key} {
+      padding: #{$value};
+    }
+  }
+
+  @each $key, $value in $padding {
+    .p-vertical-#{$key} {
+      padding: #{$value} 0px;
+    }
+  }
+  @each $key, $value in $padding {
+    .p-horizontal-#{$key} {
+      padding: 0px #{$value};
+    }
+  }
+  @each $key, $value in $padding {
+    .p-top-#{$key} {
+      padding-top: #{$value};
+    }
+  }
+
+  @each $key, $value in $padding {
+    .p-bottom-#{$key} {
+      padding-bottom: #{$value};
+    }
+  }
+
+  @each $key, $value in $padding {
+    .p-left-#{$key} {
+      padding-left: #{$value};
+    }
+  }
+
+  @each $key, $value in $padding {
+    .p-right-#{$key} {
+      padding-right: #{$value};
+    }
+  }
+}

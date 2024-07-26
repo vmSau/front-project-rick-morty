@@ -1,0 +1,21 @@
+html,
+body {
+  height: 100%;
+}
+body {
+  background: $sanchez-bg-2;
+}
+
+li {
+  list-style: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  .list-label {
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+  .material-icons {
+    color: $sanchez-light-text;
+    font-size: 30px;
+  }
+}
