@@ -30,7 +30,7 @@ export class PaginatorComponent implements OnInit, OnChanges {
     if (changes['pagesInfo']) {
       const currentValue = changes['pagesInfo'].currentValue;
       let previousValue;
-      if( changes['pagesInfo'].previousValue)
+      if (changes['pagesInfo'].previousValue)
         previousValue = changes['pagesInfo'].previousValue;
       if (previousValue && currentValue.pages !== previousValue.pages) {
         this.addPagination();
@@ -88,8 +88,18 @@ export class PaginatorComponent implements OnInit, OnChanges {
     const previousValues: number[] = [];
     const nextValues: number[] = [];
 
-    if (page > 7) {
-      for (let i = page - 7; i < page; i++) {
+    const maxPrev = Math.ceil(this.maxPaginationLegth);
+    const maxNext = Math.floor(this.maxPaginationLegth);
+
+    if (page > maxPrev) {
+      let indexPreviousPage = page - maxPrev;
+
+      this.pagesInfo.pages - page <= maxNext
+        ? (indexPreviousPage =
+            page - (this.maxPaginationLegth - (this.pagesInfo.pages - page)))
+        : indexPreviousPage;
+
+      for (let i = indexPreviousPage; i < page; i++) {
         previousValues.push(i);
       }
     } else {
@@ -98,12 +108,18 @@ export class PaginatorComponent implements OnInit, OnChanges {
       }
     }
 
-    if (this.pagesInfo.pages - page <= 8) {
+    if (this.pagesInfo.pages - page <= maxNext) {
       for (let i = page + 1; i < this.pagesInfo.pages + 1; i++) {
         nextValues.push(i);
       }
     } else {
-      for (let i = page + 1; i < page + 7; i++) {
+      let indexNextPage = page + maxPrev;
+
+      page <= maxPrev
+        ? (indexNextPage = indexNextPage + (maxNext - page))
+        : indexNextPage;
+
+      for (let i = page + 1; i < indexNextPage; i++) {
         nextValues.push(i);
       }
     }
