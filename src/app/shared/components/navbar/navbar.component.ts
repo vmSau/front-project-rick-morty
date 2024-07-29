@@ -30,8 +30,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this._subs.add(
       this._router.events.subscribe((event) => {
         if (event instanceof NavigationEnd) {
-        console.log(event)
-
           this.routeData = event.url.slice(1) as typeof this.routeData;
         }
       }),
