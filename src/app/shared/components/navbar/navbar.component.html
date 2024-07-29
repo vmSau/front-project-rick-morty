@@ -4,10 +4,10 @@
         <img src="/assets/img/logo.png" />
       </a>
       @if (routeData) {
-        <div class="btn-group m-right-md" role="group" aria-label="Basic example">
+        <div class="btn-group m-right-md" role="group" aria-label="select page">
           <button
             type="button"
-            active aria-current="page"
+            active aria-current="Home"
             class="btn btn-group"
             [ngClass]="{'active': routeData === 'home'}"
             (click)="navigateTo('home')"
@@ -19,6 +19,7 @@
           </button>
           <button
             type="button"
+            aria-current="Favorites"
             class="btn btn-group"
             [ngClass]="{'active': routeData === 'favorites'}"
             (click)="navigateTo('favorites')"

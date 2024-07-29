@@ -12,7 +12,7 @@ import { SubSink } from 'subsink';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [RouterModule, NgClass],
+  imports: [RouterModule, NgClass, ],
   templateUrl: './navbar.component.html',
 })
 export class NavbarComponent implements OnInit, OnDestroy {
