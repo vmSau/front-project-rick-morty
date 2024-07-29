@@ -1,34 +1,31 @@
 <nav class="navbar">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">
-        <img src="/assets/img/logo.png" />
-      </a>
-      @if (routeData) {
-        <div class="btn-group m-right-md" role="group" aria-label="Basic example">
-          <button
-            type="button"
-            active aria-current="page"
-            class="btn btn-group"
-            [ngClass]="{'active': routeData === 'home'}"
-            (click)="navigateTo('home')"
-          >
-          <span class="material-icons  m-right-md">
-            home
-            </span>
-            Inicio
-          </button>
-          <button
-            type="button"
-            class="btn btn-group"
-            [ngClass]="{'active': routeData === 'favorites'}"
-            (click)="navigateTo('favorites')"
-          ><span class="material-icons m-right-md ">
-            favorite
-            </span>
-            Favorito
-            <span class="span-count m-left-sm">{{favoriteCount}}</span>
-          </button>
-        </div>
-      }
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="./assets/img/logo.png" />
+    </a>
+    <div class="btn-group m-right-md" role="group" aria-label="select page">
+      <button
+        type="button"
+        active
+        aria-current="Home"
+        class="btn btn-group"
+        [ngClass]="{ active: routeData === 'home' }"
+        (click)="navigateTo('home')"
+      >
+        <span class="material-icons m-right-md"> home </span>
+        Inicio
+      </button>
+      <button
+        type="button"
+        aria-current="Favorites"
+        class="btn btn-group"
+        [ngClass]="{ active: routeData === 'favorites' }"
+        (click)="navigateTo('favorites')"
+      >
+        <span class="material-icons m-right-md"> favorite </span>
+        Favorito
+        <span class="span-count m-left-sm">{{ favoriteCount }}</span>
+      </button>
     </div>
-  </nav>
+  </div>
+</nav>

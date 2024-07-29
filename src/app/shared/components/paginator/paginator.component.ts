@@ -8,7 +8,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { NgClass } from '@angular/common';
-import { IPageInfo } from '../../../pages/characters/interfaces/page-info.interface';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-paginator',
@@ -17,20 +17,20 @@ import { IPageInfo } from '../../../pages/characters/interfaces/page-info.interf
   templateUrl: './paginator.component.html',
 })
 export class PaginatorComponent implements OnInit, OnChanges {
-  @Input() pagesInfo!: IPageInfo;
+  @Input() pagesInfo: any;
   @Output() skipPage = new EventEmitter();
 
   public currentPage: number = 1;
   numberOfpage: number[] = [0];
   maxPaginationLegth = 15;
 
-  constructor() {}
+  constructor(private _router: Router, private _route: ActivatedRoute) {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['pagesInfo']) {
       const currentValue = changes['pagesInfo'].currentValue;
       let previousValue;
-      if( changes['pagesInfo'].previousValue)
+      if (changes['pagesInfo'].previousValue)
         previousValue = changes['pagesInfo'].previousValue;
       if (previousValue && currentValue.pages !== previousValue.pages) {
         this.addPagination();
@@ -39,7 +39,12 @@ export class PaginatorComponent implements OnInit, OnChanges {
   }
 
   ngOnInit(): void {
-    this.addPagination();
+    if(this._route.queryParams)
+    this._route.queryParams.subscribe((params) => {
+      this.currentPage = Number(params['page']);
+      this.changePage(this.currentPage, 'current') 
+
+    });
   }
 
   addPagination() {
@@ -59,7 +64,7 @@ export class PaginatorComponent implements OnInit, OnChanges {
   changePage(pageSelected: number, pagechange: 'next' | 'prev' | 'current') {
     this.skipPage.emit({ skip: pagechange, pageNumber: pageSelected });
     this.currentPage = pageSelected;
-
+    this.updateRoute(pageSelected);
     switch (pagechange) {
       case 'next':
         if (pageSelected > this.maxPaginationLegth) {
@@ -98,7 +103,8 @@ export class PaginatorComponent implements OnInit, OnChanges {
       }
     }
 
-    if (this.pagesInfo.pages - page <= 8) {
+
+    if (this.pagesInfo &&(this.pagesInfo.pages - page <= 8)) {
       for (let i = page + 1; i < this.pagesInfo.pages + 1; i++) {
         nextValues.push(i);
       }
@@ -109,5 +115,14 @@ export class PaginatorComponent implements OnInit, OnChanges {
     }
 
     return [...previousValues, page, ...nextValues];
+  }
+
+  updateRoute(pageNumber: number) {
+    this._router.navigate([], {
+      relativeTo: this._route,
+      queryParams: { page: pageNumber },
+      queryParamsHandling: 'merge',
+      replaceUrl: true,
+    });
   }
 }
