@@ -4,8 +4,10 @@ import { CharactersComponent } from './pages/characters/components/characters/ch
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: CharactersComponent,  data: { characters: 'home' }  },
-  { path: 'favorites', component: CharactersComponent,  data: { characters: 'favorites' }  },
+  { path: 'home', component: CharactersComponent,  
+    data: { characters: 'home' }  },
+  { path: 'favorites', component: CharactersComponent,  
+    data: { characters: 'favorites' }  },
   {
     path: '***',
     redirectTo: '/home',

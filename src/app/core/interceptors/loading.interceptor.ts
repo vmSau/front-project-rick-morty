@@ -1,13 +1,10 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { inject } from '@angular/core';
 import {
   HttpRequest,
-  HttpHandler,
   HttpEvent,
-  HttpInterceptor,
-  HttpErrorResponse,
   HttpHandlerFn,
 } from '@angular/common/http';
-import { Observable, catchError, finalize, throwError } from 'rxjs';
+import { Observable, finalize } from 'rxjs';
 import { LoaderService } from '../services/loader.service';
 
 export function LoadingInterceptor(
@@ -18,9 +15,7 @@ export function LoadingInterceptor(
   loadingService.update();
   return next(req).pipe(
     finalize(() => {
-      setTimeout(() => {
         loadingService.update();
-      }, 2000);
     })
   );
 }
